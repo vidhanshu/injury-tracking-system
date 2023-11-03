@@ -1,11 +1,15 @@
 'use client';
 
-import Container from '@/src/common/components/container';
-import { Button } from 'antd';
-import Image from 'next/image';
 import React from 'react';
+import Image from 'next/image';
+import { Button } from 'antd';
+import { useRouter } from 'next/navigation';
+
+import Container from '@/src/common/components/container';
 
 const HeroSection = () => {
+    const router = useRouter();
+
     return (
         <>
             <div className="bg-[#f4f9fa] py-16">
@@ -24,11 +28,15 @@ const HeroSection = () => {
                             organization (such as the police) to easily record
                             and track the injuries reported by a person
                         </p>
-                        <Button type="primary" size="large">
+                        <Button
+                            onClick={() => router.push('/create-report')}
+                            type="primary"
+                            size="large"
+                        >
                             Get started
                         </Button>
                     </div>
-                    <div className='hidden lg:block'>
+                    <div className="hidden lg:block">
                         <Image
                             src="/images/its.png"
                             width={640}

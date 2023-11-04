@@ -1,11 +1,12 @@
+"use client";
+
 import React from 'react';
 import { TBodyMap, TBodyMapValue } from '../types';
 import { Tooltip } from 'antd';
 
 type TFrontBodyProps = {
     bodyMap: TBodyMap;
-    addPart: (data: { key: string; value: TBodyMapValue }) => void;
-    removePart: (key: string) => void;
+    addPart?: (data: { key: string; value: TBodyMapValue }) => void;
 };
 
 const FrontBody = ({ bodyMap, addPart }: TFrontBodyProps) => {
@@ -32,13 +33,15 @@ const FrontBody = ({ bodyMap, addPart }: TFrontBodyProps) => {
                     d="M152.5 213.5V127.5C121.5 125.5 110.333 132 99 138L91.5 172.5L96.5 225C97.1667 229.833 102.1 237.2 116.5 228C130.9 218.8 146.5 214.5 152.5 213.5Z"
                     strokeWidth="2"
                     onClick={() => {
-                        addPart({
-                            key: 'right-chest',
-                            value: {
-                                label: 'right-chest',
-                                description: '',
-                            },
-                        });
+                        if (addPart) {
+                            addPart({
+                                key: 'right-chest',
+                                value: {
+                                    label: 'right-chest',
+                                    description: '',
+                                },
+                            });
+                        }
                     }}
                     fill="transparent"
                     stroke="transparent"
@@ -55,13 +58,15 @@ const FrontBody = ({ bodyMap, addPart }: TFrontBodyProps) => {
                     d="M154 214.156V128.368C185 126.373 196.167 132.857 207.5 138.842L215 173.257L210 225.627C209.333 230.449 204.4 237.797 190 228.62C175.6 219.443 160 215.153 154 214.156Z"
                     strokeWidth="2"
                     onClick={() => {
-                        addPart({
-                            key: 'left-chest',
-                            value: {
-                                label: 'left-chest',
-                                description: '',
-                            },
-                        });
+                        if (addPart) {
+                            addPart({
+                                key: 'left-chest',
+                                value: {
+                                    label: 'left-chest',
+                                    description: '',
+                                },
+                            });
+                        }
                     }}
                     fill="transparent"
                     stroke="transparent"
@@ -77,13 +82,15 @@ const FrontBody = ({ bodyMap, addPart }: TFrontBodyProps) => {
                     d="M151 31H114V61H151V31Z"
                     name="right-eye"
                     onClick={() => {
-                        addPart({
-                            key: 'right-eye',
-                            value: {
-                                label: 'right-eye',
-                                description: '',
-                            },
-                        });
+                        if (addPart) {
+                            addPart({
+                                key: 'right-eye',
+                                value: {
+                                    label: 'right-eye',
+                                    description: '',
+                                },
+                            });
+                        }
                     }}
                     fill="transparent"
                     stroke="transparent"
@@ -100,13 +107,15 @@ const FrontBody = ({ bodyMap, addPart }: TFrontBodyProps) => {
                     d="M190 31H153V61H190V31Z"
                     name="left-eye"
                     onClick={() => {
-                        addPart({
-                            key: 'left-eye',
-                            value: {
-                                label: 'left-eye',
-                                description: '',
-                            },
-                        });
+                        if (addPart) {
+                            addPart({
+                                key: 'left-eye',
+                                value: {
+                                    label: 'left-eye',
+                                    description: '',
+                                },
+                            });
+                        }
                     }}
                     fill="transparent"
                     stroke="transparent"
@@ -123,13 +132,15 @@ const FrontBody = ({ bodyMap, addPart }: TFrontBodyProps) => {
                     d="M189.999 29H113.499C113.499 29 112 1 151.999 1C193 1 189.999 29 189.999 29Z"
                     name="head"
                     onClick={() => {
-                        addPart({
-                            key: 'head',
-                            value: {
-                                label: 'head',
-                                description: '',
-                            },
-                        });
+                        if (addPart) {
+                            addPart({
+                                key: 'head',
+                                value: {
+                                    label: 'head',
+                                    description: '',
+                                },
+                            });
+                        }
                     }}
                     fill="transparent"
                     stroke="transparent"
@@ -146,13 +157,15 @@ const FrontBody = ({ bodyMap, addPart }: TFrontBodyProps) => {
                     d="M151.5 75V112C151.5 112 135.44 104.552 126 97C123.5 95 119.084 91.2006 117.5 88C114.465 81.8688 114.5 75 114.5 75H151.5Z"
                     name="right-jaw"
                     onClick={() => {
-                        addPart({
-                            key: 'right-jaw',
-                            value: {
-                                label: 'right-jaw',
-                                description: '',
-                            },
-                        });
+                        if (addPart) {
+                            addPart({
+                                key: 'right-jaw',
+                                value: {
+                                    label: 'right-jaw',
+                                    description: '',
+                                },
+                            });
+                        }
                     }}
                     fill="transparent"
                     stroke="transparent"
@@ -169,13 +182,15 @@ const FrontBody = ({ bodyMap, addPart }: TFrontBodyProps) => {
                     d="M153 75V112C153 112 169.06 104.552 178.5 97C181 95 185.416 91.2006 187 88C190.035 81.8688 190 75 190 75H153Z"
                     name="left-jaw"
                     onClick={() => {
-                        addPart({
-                            key: 'left-jaw',
-                            value: {
-                                label: 'left-jaw',
-                                description: '',
-                            },
-                        });
+                        if (addPart) {
+                            addPart({
+                                key: 'left-jaw',
+                                value: {
+                                    label: 'left-jaw',
+                                    description: '',
+                                },
+                            });
+                        }
                     }}
                     fill="transparent"
                     stroke="transparent"
@@ -192,13 +207,15 @@ const FrontBody = ({ bodyMap, addPart }: TFrontBodyProps) => {
                     d="M114.5 73L113.5 63H190V73H114.5Z"
                     name="nose"
                     onClick={() => {
-                        addPart({
-                            key: 'nose',
-                            value: {
-                                label: 'nose',
-                                description: '',
-                            },
-                        });
+                        if (addPart) {
+                            addPart({
+                                key: 'nose',
+                                value: {
+                                    label: 'nose',
+                                    description: '',
+                                },
+                            });
+                        }
                     }}
                     fill="transparent"
                     stroke="transparent"
@@ -215,13 +232,15 @@ const FrontBody = ({ bodyMap, addPart }: TFrontBodyProps) => {
                     d="M103.499 64C102.375 49.9648 112.499 49.5 112.499 49.5L113.499 79C113.499 79 104.5 76.5 103.499 64Z"
                     name="right-ear"
                     onClick={() => {
-                        addPart({
-                            key: 'right-ear',
-                            value: {
-                                label: 'right-ear',
-                                description: '',
-                            },
-                        });
+                        if (addPart) {
+                            addPart({
+                                key: 'right-ear',
+                                value: {
+                                    label: 'right-ear',
+                                    description: '',
+                                },
+                            });
+                        }
                     }}
                     fill="transparent"
                     stroke="transparent"
@@ -238,13 +257,15 @@ const FrontBody = ({ bodyMap, addPart }: TFrontBodyProps) => {
                     d="M201.196 63.3905C202.133 50.4142 192.001 50.1309 192.001 50.1309L191.393 77.3855C191.393 77.3855 200.361 74.9474 201.196 63.3905Z"
                     name="left-ear"
                     onClick={() => {
-                        addPart({
-                            key: 'left-ear',
-                            value: {
-                                label: 'left-ear',
-                                description: '',
-                            },
-                        });
+                        if (addPart) {
+                            addPart({
+                                key: 'left-ear',
+                                value: {
+                                    label: 'left-ear',
+                                    description: '',
+                                },
+                            });
+                        }
                     }}
                     fill="transparent"
                     stroke="transparent"
@@ -261,13 +282,15 @@ const FrontBody = ({ bodyMap, addPart }: TFrontBodyProps) => {
                     d="M30.5017 355C28.8988 347.873 35.1684 298.5 38.5017 292L76 298C73.3473 314.032 64.8333 345.333 59 360.5L30.5017 355Z"
                     name="right-lower-arm"
                     onClick={() => {
-                        addPart({
-                            key: 'right-lower-arm',
-                            value: {
-                                label: 'right-lower-arm',
-                                description: '',
-                            },
-                        });
+                        if (addPart) {
+                            addPart({
+                                key: 'right-lower-arm',
+                                value: {
+                                    label: 'right-lower-arm',
+                                    description: '',
+                                },
+                            });
+                        }
                     }}
                     fill="transparent"
                     stroke="transparent"
@@ -284,13 +307,15 @@ const FrontBody = ({ bodyMap, addPart }: TFrontBodyProps) => {
                     d="M275.741 356.058C277.353 348.359 271.049 295.022 267.698 288L230 294.482C232.667 311.801 241.226 345.616 247.091 362L275.741 356.058Z"
                     name="left-lower-arm"
                     onClick={() => {
-                        addPart({
-                            key: 'left-lower-arm',
-                            value: {
-                                label: 'left-lower-arm',
-                                description: '',
-                            },
-                        });
+                        if (addPart) {
+                            addPart({
+                                key: 'left-lower-arm',
+                                value: {
+                                    label: 'left-lower-arm',
+                                    description: '',
+                                },
+                            });
+                        }
                     }}
                     fill="transparent"
                     stroke="transparent"
@@ -307,13 +332,15 @@ const FrontBody = ({ bodyMap, addPart }: TFrontBodyProps) => {
                     d="M153 375L124.5 358H188.5L153 375Z"
                     name="pelvis"
                     onClick={() => {
-                        addPart({
-                            key: 'pelvis',
-                            value: {
-                                label: 'pelvis',
-                                description: '',
-                            },
-                        });
+                        if (addPart) {
+                            addPart({
+                                key: 'pelvis',
+                                value: {
+                                    label: 'pelvis',
+                                    description: '',
+                                },
+                            });
+                        }
                     }}
                     fill="transparent"
                     stroke="transparent"
@@ -330,13 +357,15 @@ const FrontBody = ({ bodyMap, addPart }: TFrontBodyProps) => {
                     d="M152.501 378H87.0009C87.0009 378 85.0824 398.394 85.0009 411.5C84.7851 446.184 97.0009 499.5 97.0009 499.5H147.501L152.501 378Z"
                     name="right-thigh"
                     onClick={() => {
-                        addPart({
-                            key: 'right-thigh',
-                            value: {
-                                label: 'right-thigh',
-                                description: '',
-                            },
-                        });
+                        if (addPart) {
+                            addPart({
+                                key: 'right-thigh',
+                                value: {
+                                    label: 'right-thigh',
+                                    description: '',
+                                },
+                            });
+                        }
                     }}
                     fill="transparent"
                     stroke="transparent"
@@ -353,13 +382,15 @@ const FrontBody = ({ bodyMap, addPart }: TFrontBodyProps) => {
                     d="M153 378H218.497C218.497 378 220.416 398.586 220.497 411.815C220.713 446.824 208.498 500.641 208.498 500.641H158L153 378Z"
                     name="left-thigh"
                     onClick={() => {
-                        addPart({
-                            key: 'left-thigh',
-                            value: {
-                                label: 'left-thigh',
-                                description: '',
-                            },
-                        });
+                        if (addPart) {
+                            addPart({
+                                key: 'left-thigh',
+                                value: {
+                                    label: 'left-thigh',
+                                    description: '',
+                                },
+                            });
+                        }
                     }}
                     fill="transparent"
                     stroke="transparent"
@@ -376,13 +407,15 @@ const FrontBody = ({ bodyMap, addPart }: TFrontBodyProps) => {
                     d="M149 540H102C99.2002 551.6 103.167 585.5 105.5 601L120 685H149.5L152.5 621.5V592L149 540Z"
                     name="right-leg"
                     onClick={() => {
-                        addPart({
-                            key: 'right-leg',
-                            value: {
-                                label: 'right-leg',
-                                description: '',
-                            },
-                        });
+                        if (addPart) {
+                            addPart({
+                                key: 'right-leg',
+                                value: {
+                                    label: 'right-leg',
+                                    description: '',
+                                },
+                            });
+                        }
                     }}
                     fill="transparent"
                     stroke="transparent"
@@ -399,13 +432,15 @@ const FrontBody = ({ bodyMap, addPart }: TFrontBodyProps) => {
                     d="M157.501 540H204.498C207.298 551.537 203.331 585.254 200.998 600.67L186.499 684.215H157.001L154.001 621.059V591.719L157.501 540Z"
                     name="left-leg"
                     onClick={() => {
-                        addPart({
-                            key: 'left-leg',
-                            value: {
-                                label: 'left-leg',
-                                description: '',
-                            },
-                        });
+                        if (addPart) {
+                            addPart({
+                                key: 'left-leg',
+                                value: {
+                                    label: 'left-leg',
+                                    description: '',
+                                },
+                            });
+                        }
                     }}
                     fill="transparent"
                     stroke="transparent"
@@ -422,13 +457,15 @@ const FrontBody = ({ bodyMap, addPart }: TFrontBodyProps) => {
                     d="M130 125.5V102.5L152.5 114L175.5 101V125.5H130Z"
                     name="neck"
                     onClick={() => {
-                        addPart({
-                            key: 'neck',
-                            value: {
-                                label: 'neck',
-                                description: '',
-                            },
-                        });
+                        if (addPart) {
+                            addPart({
+                                key: 'neck',
+                                value: {
+                                    label: 'neck',
+                                    description: '',
+                                },
+                            });
+                        }
                     }}
                     fill="transparent"
                     stroke="transparent"
@@ -445,13 +482,15 @@ const FrontBody = ({ bodyMap, addPart }: TFrontBodyProps) => {
                     d="M90 172L98 137C90.5 142.167 79 146.5 64.5 162.5C56.5137 171.312 52.1667 196.167 51.5 208H94.5L90 172Z"
                     name="right-shoulder"
                     onClick={() => {
-                        addPart({
-                            key: 'right-shoulder',
-                            value: {
-                                label: 'right-shoulder',
-                                description: '',
-                            },
-                        });
+                        if (addPart) {
+                            addPart({
+                                key: 'right-shoulder',
+                                value: {
+                                    label: 'right-shoulder',
+                                    description: '',
+                                },
+                            });
+                        }
                     }}
                     fill="transparent"
                     stroke="transparent"
@@ -468,13 +507,15 @@ const FrontBody = ({ bodyMap, addPart }: TFrontBodyProps) => {
                     d="M215 170.957L207 136C214.5 141.16 226 145.488 240.5 161.469C248.486 170.27 252.833 195.094 253.5 206.912H210.5L215 170.957Z"
                     name="left-shoulder"
                     onClick={() => {
-                        addPart({
-                            key: 'left-shoulder',
-                            value: {
-                                label: 'left-shoulder',
-                                description: '',
-                            },
-                        });
+                        if (addPart) {
+                            addPart({
+                                key: 'left-shoulder',
+                                value: {
+                                    label: 'left-shoulder',
+                                    description: '',
+                                },
+                            });
+                        }
                     }}
                     fill="transparent"
                     stroke="transparent"
@@ -491,13 +532,15 @@ const FrontBody = ({ bodyMap, addPart }: TFrontBodyProps) => {
                     d="M59.4997 362L29.9997 356.5L4.49973 387C4.49973 387 -0.477163 393.084 1.99973 395.5C3.95664 397.409 8.99973 395.5 8.99973 395.5L18.9997 385L7.99973 417.5C7.99973 417.5 9.23938 421.744 11.4997 422.5C13.3882 423.132 16.4997 421.5 16.4997 421.5C16.4997 421.5 16.3254 429.651 19.9997 430.5C22.7237 431.129 26.4997 427.5 26.4997 427.5L28.4997 422C28.4997 422 32.0622 428.019 35.4997 427.5C38.0972 427.107 40.4997 423 40.4997 423L41.9997 419.5C41.9997 419.5 44.5072 423.299 46.9997 423.5C49.4384 423.697 52.4997 420.5 52.4997 420.5L59.4997 391.5V362Z"
                     name="right-hand"
                     onClick={() => {
-                        addPart({
-                            key: 'right-hand',
-                            value: {
-                                label: 'right-hand',
-                                description: '',
-                            },
-                        });
+                        if (addPart) {
+                            addPart({
+                                key: 'right-hand',
+                                value: {
+                                    label: 'right-hand',
+                                    description: '',
+                                },
+                            });
+                        }
                     }}
                     fill="transparent"
                     stroke="transparent"
@@ -514,13 +557,15 @@ const FrontBody = ({ bodyMap, addPart }: TFrontBodyProps) => {
                     d="M247.999 362.401L277.499 357L302.998 386.95C302.998 386.95 307.975 392.924 305.498 395.297C303.541 397.171 298.498 395.297 298.498 395.297L288.499 384.986L299.498 416.9C299.498 416.9 298.259 421.067 295.999 421.81C294.11 422.43 290.999 420.828 290.999 420.828C290.999 420.828 291.173 428.832 287.499 429.665C284.775 430.284 280.999 426.72 280.999 426.72L278.999 421.319C278.999 421.319 275.436 427.23 271.999 426.72C269.402 426.334 266.999 422.301 266.999 422.301L265.499 418.864C265.499 418.864 262.992 422.594 260.499 422.792C258.061 422.985 254.999 419.846 254.999 419.846L247.999 391.369V362.401Z"
                     name="left-hand"
                     onClick={() => {
-                        addPart({
-                            key: 'left-hand',
-                            value: {
-                                label: 'left-hand',
-                                description: '',
-                            },
-                        });
+                        if (addPart) {
+                            addPart({
+                                key: 'left-hand',
+                                value: {
+                                    label: 'left-hand',
+                                    description: '',
+                                },
+                            });
+                        }
                     }}
                     fill="transparent"
                     stroke="transparent"
@@ -537,13 +582,15 @@ const FrontBody = ({ bodyMap, addPart }: TFrontBodyProps) => {
                     d="M92.5 209.5H51L44.5 272L79.5 275.5L92.5 209.5Z"
                     name="right-upper-arm"
                     onClick={() => {
-                        addPart({
-                            key: 'right-upper-arm',
-                            value: {
-                                label: 'right-upper-arm',
-                                description: '',
-                            },
-                        });
+                        if (addPart) {
+                            addPart({
+                                key: 'right-upper-arm',
+                                value: {
+                                    label: 'right-upper-arm',
+                                    description: '',
+                                },
+                            });
+                        }
                     }}
                     fill="transparent"
                     stroke="transparent"
@@ -560,13 +607,15 @@ const FrontBody = ({ bodyMap, addPart }: TFrontBodyProps) => {
                     d="M213 208H254.5L261 270.5L226 274L213 208Z"
                     name="left-upper-arm"
                     onClick={() => {
-                        addPart({
-                            key: 'left-upper-arm',
-                            value: {
-                                label: 'left-upper-arm',
-                                description: '',
-                            },
-                        });
+                        if (addPart) {
+                            addPart({
+                                key: 'left-upper-arm',
+                                value: {
+                                    label: 'left-upper-arm',
+                                    description: '',
+                                },
+                            });
+                        }
                     }}
                     fill="transparent"
                     stroke="transparent"
@@ -583,13 +632,15 @@ const FrontBody = ({ bodyMap, addPart }: TFrontBodyProps) => {
                     d="M38.5 290.5L44 273.5L79 277L76.5 296.5L38.5 290.5Z"
                     name="right-elbow"
                     onClick={() => {
-                        addPart({
-                            key: 'right-elbow',
-                            value: {
-                                label: 'right-elbow',
-                                description: '',
-                            },
-                        });
+                        if (addPart) {
+                            addPart({
+                                key: 'right-elbow',
+                                value: {
+                                    label: 'right-elbow',
+                                    description: '',
+                                },
+                            });
+                        }
                     }}
                     fill="transparent"
                     stroke="transparent"
@@ -606,13 +657,15 @@ const FrontBody = ({ bodyMap, addPart }: TFrontBodyProps) => {
                     d="M266.5 287.215L261 271L226 274.338L228.5 292.938L266.5 287.215Z"
                     name="left-elbow"
                     onClick={() => {
-                        addPart({
-                            key: 'left-elbow',
-                            value: {
-                                label: 'left-elbow',
-                                description: '',
-                            },
-                        });
+                        if (addPart) {
+                            addPart({
+                                key: 'left-elbow',
+                                value: {
+                                    label: 'left-elbow',
+                                    description: '',
+                                },
+                            });
+                        }
                     }}
                     fill="transparent"
                     stroke="transparent"
@@ -629,13 +682,15 @@ const FrontBody = ({ bodyMap, addPart }: TFrontBodyProps) => {
                     d="M215 357H91C93.3709 349.408 98.6299 316.197 99.5344 286.542C100.3 261.434 97.0527 236.105 95.5182 229.529C95.5182 229.529 100.906 235.109 104.555 235.446C114.775 236.39 118.713 227.385 128.15 223.075C136.994 219.036 142.634 214.803 152.247 215.007C159.871 215.169 162.636 217.638 169.818 220.386C183.874 225.764 194.417 238.254 200.943 235.446C205.237 233.598 210.482 227.916 210.482 227.916C210.482 227.916 206.187 262.602 206.466 284.928C206.82 313.297 215 357 215 357Z"
                     name="abdomen"
                     onClick={() => {
-                        addPart({
-                            key: 'abdomen',
-                            value: {
-                                label: 'abdomen',
-                                description: '',
-                            },
-                        });
+                        if (addPart) {
+                            addPart({
+                                key: 'abdomen',
+                                value: {
+                                    label: 'abdomen',
+                                    description: '',
+                                },
+                            });
+                        }
                     }}
                     fill="transparent"
                     stroke="transparent"
@@ -652,13 +707,15 @@ const FrontBody = ({ bodyMap, addPart }: TFrontBodyProps) => {
                     d="M90 358H124.5L152 376.5H87L90 358Z"
                     name="right-groin"
                     onClick={() => {
-                        addPart({
-                            key: 'right-groin',
-                            value: {
-                                label: 'right-groin',
-                                description: '',
-                            },
-                        });
+                        if (addPart) {
+                            addPart({
+                                key: 'right-groin',
+                                value: {
+                                    label: 'right-groin',
+                                    description: '',
+                                },
+                            });
+                        }
                     }}
                     fill="transparent"
                     stroke="transparent"
@@ -675,13 +732,15 @@ const FrontBody = ({ bodyMap, addPart }: TFrontBodyProps) => {
                     d="M215 358H180.5L153 376.571H218L215 358Z"
                     name="left-groin"
                     onClick={() => {
-                        addPart({
-                            key: 'left-groin',
-                            value: {
-                                label: 'left-groin',
-                                description: '',
-                            },
-                        });
+                        if (addPart) {
+                            addPart({
+                                key: 'left-groin',
+                                value: {
+                                    label: 'left-groin',
+                                    description: '',
+                                },
+                            });
+                        }
                     }}
                     fill="transparent"
                     stroke="transparent"
@@ -698,13 +757,15 @@ const FrontBody = ({ bodyMap, addPart }: TFrontBodyProps) => {
                     d="M148 501.5H96.5L103.5 520.5L101.5 538H149L148 501.5Z"
                     name="right-knee"
                     onClick={() => {
-                        addPart({
-                            key: 'right-knee',
-                            value: {
-                                label: 'right-knee',
-                                description: '',
-                            },
-                        });
+                        if (addPart) {
+                            addPart({
+                                key: 'right-knee',
+                                value: {
+                                    label: 'right-knee',
+                                    description: '',
+                                },
+                            });
+                        }
                     }}
                     fill="transparent"
                     stroke="transparent"
@@ -721,13 +782,15 @@ const FrontBody = ({ bodyMap, addPart }: TFrontBodyProps) => {
                     d="M158 502H209.5L202.5 520.584L204.5 537.7H157L158 502Z"
                     name="left-knee"
                     onClick={() => {
-                        addPart({
-                            key: 'left-knee',
-                            value: {
-                                label: 'left-knee',
-                                description: '',
-                            },
-                        });
+                        if (addPart) {
+                            addPart({
+                                key: 'left-knee',
+                                value: {
+                                    label: 'left-knee',
+                                    description: '',
+                                },
+                            });
+                        }
                     }}
                     fill="transparent"
                     stroke="transparent"
@@ -744,13 +807,15 @@ const FrontBody = ({ bodyMap, addPart }: TFrontBodyProps) => {
                     d="M119.499 688.5V686.5H149.499L152.499 690L153.499 725C153.499 725 149.647 728.915 146.499 729C142.816 729.1 138.499 724 138.499 724C138.499 724 135.776 727 133.499 727C131.222 727 128.499 724 128.499 724C128.499 724 125.381 727.559 122.999 727C121.117 726.558 119.499 723.5 119.499 723.5C119.499 723.5 117.006 726.12 114.999 726C112.518 725.852 110.499 721.5 110.499 721.5C110.499 721.5 107.986 724.308 105.999 724C104.089 723.704 102.499 720.5 102.499 720.5C102.499 718.667 102.247 713.033 103.499 708.5C106.163 698.859 114.499 693 119.499 688.5Z"
                     name="right-feet"
                     onClick={() => {
-                        addPart({
-                            key: 'right-feet',
-                            value: {
-                                label: 'right-feet',
-                                description: '',
-                            },
-                        });
+                        if (addPart) {
+                            addPart({
+                                key: 'right-feet',
+                                value: {
+                                    label: 'right-feet',
+                                    description: '',
+                                },
+                            });
+                        }
                     }}
                     fill="transparent"
                     stroke="transparent"
@@ -767,13 +832,15 @@ const FrontBody = ({ bodyMap, addPart }: TFrontBodyProps) => {
                     d="M187.999 687.964V686H157.999L155 689.438L154 723.814C154 723.814 157.852 727.658 160.999 727.742C164.682 727.84 168.999 722.831 168.999 722.831C168.999 722.831 171.722 725.778 173.999 725.778C176.276 725.778 178.999 722.831 178.999 722.831C178.999 722.831 182.117 726.327 184.499 725.778C186.381 725.344 187.999 722.34 187.999 722.34C187.999 722.34 190.492 724.913 192.499 724.796C194.98 724.65 196.999 720.376 196.999 720.376C196.999 720.376 199.512 723.134 201.499 722.831C203.409 722.54 204.999 719.394 204.999 719.394C204.999 717.593 205.251 712.06 203.999 707.608C201.335 698.139 192.999 692.384 187.999 687.964Z"
                     name="left-feet"
                     onClick={() => {
-                        addPart({
-                            key: 'left-feet',
-                            value: {
-                                label: 'left-feet',
-                                description: '',
-                            },
-                        });
+                        if (addPart) {
+                            addPart({
+                                key: 'left-feet',
+                                value: {
+                                    label: 'left-feet',
+                                    description: '',
+                                },
+                            });
+                        }
                     }}
                     fill="transparent"
                     stroke="transparent"

@@ -8,7 +8,30 @@ datasource db {
 }
 
 model User {
-  id    Int     @id @default(autoincrement())
-  email String  @unique
-  name  String?
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  image     String?
+  username  String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  password  String?
+  Report    Report[]
+}
+
+model Report {
+  id         Int       @id @default(autoincrement())
+  name       String
+  reporterId Int
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+  date       DateTime
+  BodyMap    BodyMap[]
+  reporter   User      @relation(fields: [reporterId], references: [id])
+}
+
+model BodyMap {
+  id       Int    @id @default(autoincrement())
+  map      Json
+  reportId Int
+  report   Report @relation(fields: [reportId], references: [id])
 }

@@ -1,15 +1,16 @@
+"use client";
+
 import React from 'react';
+import { Tooltip } from 'antd';
 
 import { TBodyMap, TBodyMapValue } from '../types';
-import { Tooltip } from 'antd';
 
 type TBackBodyProps = {
     bodyMap: TBodyMap;
-    addPart: (data: { key: string; value: TBodyMapValue }) => void;
-    removePart: (key: string) => void;
+    addPart?: (data: { key: string; value: TBodyMapValue }) => void;
 };
 
-const BackBody = ({ bodyMap, addPart, removePart }: TBackBodyProps) => {
+const BackBody = ({ bodyMap, addPart }: TBackBodyProps) => {
     return (
         <svg
             width="302"
@@ -32,13 +33,15 @@ const BackBody = ({ bodyMap, addPart, removePart }: TBackBodyProps) => {
                     d="M111 22.6083C111 9.5 132.14 0.905069 149.248 1.0017C166.187 1.09738 187 8 187 25.1351V79.891C187 90.5671 171.105 102 171.105 102H126.895C126.895 102 113.202 90.2067 112.49 79.891C111 58.2975 111 43.228 111 22.6453V22.6083Z"
                     name="back-head"
                     onClick={() => {
-                        addPart({
-                            key: 'back-head',
-                            value: {
-                                label: 'back-head',
-                                description: '',
-                            },
-                        });
+                        if (addPart) {
+                            addPart({
+                                key: 'back-head',
+                                value: {
+                                    label: 'back-head',
+                                    description: '',
+                                },
+                            });
+                        }
                     }}
                     fill="transparent"
                     stroke="transparent"
@@ -55,13 +58,15 @@ const BackBody = ({ bodyMap, addPart, removePart }: TBackBodyProps) => {
                     d="M126.836 388.949C142.843 387.834 149 380.502 149 380.502V358.782L103.03 344C99.9749 349.722 94 366.323 94 375.072C94 375.072 111.971 389.983 126.836 388.949Z"
                     name="left-buttock"
                     onClick={() => {
-                        addPart({
-                            key: 'left-buttock',
-                            value: {
-                                label: 'left-buttock',
-                                description: '',
-                            },
-                        });
+                        if (addPart) {
+                            addPart({
+                                key: 'left-buttock',
+                                value: {
+                                    label: 'left-buttock',
+                                    description: '',
+                                },
+                            });
+                        }
                     }}
                     fill="transparent"
                     stroke="transparent"
@@ -78,13 +83,15 @@ const BackBody = ({ bodyMap, addPart, removePart }: TBackBodyProps) => {
                     d="M170.923 389.949C156.585 388.866 153 381.022 153 381.022V358.494L195.955 344C198.81 349.804 204.378 365.895 203.98 375.455C203.98 375.455 184.812 390.999 170.923 389.949Z"
                     name="right-buttock"
                     onClick={() => {
-                        addPart({
-                            key: 'right-buttock',
-                            value: {
-                                label: 'right-buttock',
-                                description: '',
-                            },
-                        });
+                        if (addPart) {
+                            addPart({
+                                key: 'right-buttock',
+                                value: {
+                                    label: 'right-buttock',
+                                    description: '',
+                                },
+                            });
+                        }
                     }}
                     fill="transparent"
                     stroke="transparent"
@@ -101,13 +108,15 @@ const BackBody = ({ bodyMap, addPart, removePart }: TBackBodyProps) => {
                     d="M172.5 103.5H127.5V123.5L172.5 123V103.5Z"
                     name="back-neck"
                     onClick={() => {
-                        addPart({
-                            key: 'back-neck',
-                            value: {
-                                label: 'back-neck',
-                                description: '',
-                            },
-                        });
+                        if (addPart) {
+                            addPart({
+                                key: 'back-neck',
+                                value: {
+                                    label: 'back-neck',
+                                    description: '',
+                                },
+                            });
+                        }
                     }}
                     fill="transparent"
                     stroke="transparent"
@@ -124,13 +133,15 @@ const BackBody = ({ bodyMap, addPart, removePart }: TBackBodyProps) => {
                     d="M44.5 267.5L45.5 245.5L83 251L76.5 275L75 289.5L38.5 283.5L44.5 267.5Z"
                     name="left-back-elbow"
                     onClick={() => {
-                        addPart({
-                            key: 'left-back-elbow',
-                            value: {
-                                label: 'left-back-elbow',
-                                description: '',
-                            },
-                        });
+                        if (addPart) {
+                            addPart({
+                                key: 'left-back-elbow',
+                                value: {
+                                    label: 'left-back-elbow',
+                                    description: '',
+                                },
+                            });
+                        }
                     }}
                     fill="transparent"
                     stroke="transparent"
@@ -147,13 +158,15 @@ const BackBody = ({ bodyMap, addPart, removePart }: TBackBodyProps) => {
                     d="M256.5 268.25L255.5 246L218 251.562L224.5 275.835L226 290.5L262.5 284.432L256.5 268.25Z"
                     name="right-back-elbow"
                     onClick={() => {
-                        addPart({
-                            key: 'right-back-elbow',
-                            value: {
-                                label: 'right-back-elbow',
-                                description: '',
-                            },
-                        });
+                        if (addPart) {
+                            addPart({
+                                key: 'right-back-elbow',
+                                value: {
+                                    label: 'right-back-elbow',
+                                    description: '',
+                                },
+                            });
+                        }
                     }}
                     fill="transparent"
                     stroke="transparent"
@@ -170,13 +183,15 @@ const BackBody = ({ bodyMap, addPart, removePart }: TBackBodyProps) => {
                     d="M145.5 312.5L95.5 310C95.5 310 91.863 319.661 90 326C84.7591 343.833 82.5 373 82.5 373L84.5 415.5C86.8333 406.667 91.5 386.3 91.5 375.5C91.5 364.7 98.8333 349 102.5 342.5L145.5 312.5Z"
                     name="left-hip"
                     onClick={() => {
-                        addPart({
-                            key: 'left-hip',
-                            value: {
-                                label: 'left-hip',
-                                description: '',
-                            },
-                        });
+                        if (addPart) {
+                            addPart({
+                                key: 'left-hip',
+                                value: {
+                                    label: 'left-hip',
+                                    description: '',
+                                },
+                            });
+                        }
                     }}
                     fill="transparent"
                     stroke="transparent"
@@ -193,13 +208,15 @@ const BackBody = ({ bodyMap, addPart, removePart }: TBackBodyProps) => {
                     d="M152 312.496L202 310C202 310 205.637 319.644 207.5 325.973C212.741 343.775 215 372.893 215 372.893L213 415.321C210.667 406.502 206 386.17 206 375.389C206 364.607 198.667 348.934 195 342.445L152 312.496Z"
                     name="right-hip"
                     onClick={() => {
-                        addPart({
-                            key: 'right-hip',
-                            value: {
-                                label: 'right-hip',
-                                description: '',
-                            },
-                        });
+                        if (addPart) {
+                            addPart({
+                                key: 'right-hip',
+                                value: {
+                                    label: 'right-hip',
+                                    description: '',
+                                },
+                            });
+                        }
                     }}
                     fill="transparent"
                     stroke="transparent"
@@ -216,13 +233,15 @@ const BackBody = ({ bodyMap, addPart, removePart }: TBackBodyProps) => {
                     d="M212 195.5L204 172H96.5L88 199.5L96.5 233.5H204L212 195.5Z"
                     name="upper-back"
                     onClick={() => {
-                        addPart({
-                            key: 'upper-back',
-                            value: {
-                                label: 'upper-back',
-                                description: '',
-                            },
-                        });
+                        if (addPart) {
+                            addPart({
+                                key: 'upper-back',
+                                value: {
+                                    label: 'upper-back',
+                                    description: '',
+                                },
+                            });
+                        }
                     }}
                     fill="transparent"
                     stroke="transparent"
@@ -239,13 +258,15 @@ const BackBody = ({ bodyMap, addPart, removePart }: TBackBodyProps) => {
                     d="M95.5 308.5C98.1667 292.333 98.1667 252.167 95.5 236H205C203.167 251.833 203.167 292.667 205 308.5H95.5Z"
                     name="Lower Back"
                     onClick={() => {
-                        addPart({
-                            key: 'Lower Back',
-                            value: {
-                                label: 'Lower Back',
-                                description: '',
-                            },
-                        });
+                        if (addPart) {
+                            addPart({
+                                key: 'Lower Back',
+                                value: {
+                                    label: 'Lower Back',
+                                    description: '',
+                                },
+                            });
+                        }
                     }}
                     fill="transparent"
                     stroke="transparent"
@@ -262,13 +283,15 @@ const BackBody = ({ bodyMap, addPart, removePart }: TBackBodyProps) => {
                     d="M172 124H128L136 310H168.5L172 124Z"
                     name="spinal-column"
                     onClick={() => {
-                        addPart({
-                            key: 'spinal-column',
-                            value: {
-                                label: 'spinal-column',
-                                description: '',
-                            },
-                        });
+                        if (addPart) {
+                            addPart({
+                                key: 'spinal-column',
+                                value: {
+                                    label: 'spinal-column',
+                                    description: '',
+                                },
+                            });
+                        }
                     }}
                     fill="transparent"
                     stroke="transparent"
@@ -285,13 +308,15 @@ const BackBody = ({ bodyMap, addPart, removePart }: TBackBodyProps) => {
                     d="M101.5 520L96.5 499.5H146.5L145.5 522.5L149 543H99.5L101.5 520Z"
                     name="left-back-knee"
                     onClick={() => {
-                        addPart({
-                            key: 'left-back-knee',
-                            value: {
-                                label: 'left-back-knee',
-                                description: '',
-                            },
-                        });
+                        if (addPart) {
+                            addPart({
+                                key: 'left-back-knee',
+                                value: {
+                                    label: 'left-back-knee',
+                                    description: '',
+                                },
+                            });
+                        }
                     }}
                     fill="transparent"
                     stroke="transparent"
@@ -308,13 +333,15 @@ const BackBody = ({ bodyMap, addPart, removePart }: TBackBodyProps) => {
                     d="M199.5 519.421L204.5 499H154.5L155.5 521.912L152 542.333H201.5L199.5 519.421Z"
                     name="right-back-knee"
                     onClick={() => {
-                        addPart({
-                            key: 'right-back-knee',
-                            value: {
-                                label: 'right-back-knee',
-                                description: '',
-                            },
-                        });
+                        if (addPart) {
+                            addPart({
+                                key: 'right-back-knee',
+                                value: {
+                                    label: 'right-back-knee',
+                                    description: '',
+                                },
+                            });
+                        }
                     }}
                     fill="transparent"
                     stroke="transparent"

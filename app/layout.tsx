@@ -1,5 +1,4 @@
 import React from 'react';
-import { UserProvider } from '@auth0/nextjs-auth0/client';
 import { IBM_Plex_Sans } from 'next/font/google';
 import { ConfigProvider } from 'antd';
 
@@ -7,6 +6,7 @@ import StyledComponentsRegistry from '@/lib/AntdRegistry';
 import theme from '@/lib/themeConfig';
 
 import './globals.css';
+import AuthSessionProvider from '@/src/auth/components/auth-session-provider';
 
 const ibmPlexSans = IBM_Plex_Sans({
     subsets: ['latin'],
@@ -21,7 +21,7 @@ export const metadata = {
 
 const RootLayout = ({ children }: React.PropsWithChildren) => (
     <html lang="en">
-        <UserProvider>
+        <AuthSessionProvider>
             <ConfigProvider theme={theme}>
                 <body className={ibmPlexSans.className}>
                     <StyledComponentsRegistry>
@@ -29,7 +29,7 @@ const RootLayout = ({ children }: React.PropsWithChildren) => (
                     </StyledComponentsRegistry>
                 </body>
             </ConfigProvider>
-        </UserProvider>
+        </AuthSessionProvider>
     </html>
 );
 

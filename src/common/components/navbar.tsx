@@ -5,9 +5,10 @@ import Link from 'next/link';
 import Image from 'next/image';
 import type { MenuProps } from 'antd';
 import { Button, Dropdown } from 'antd';
-import { useUser } from '@auth0/nextjs-auth0/client';
+import { useSession } from 'next-auth/react';
 import { Clipboard, LogIn } from 'lucide-react';
 import { useMediaQuery } from 'usehooks-ts';
+import { signIn, signOut } from 'next-auth/react';
 
 import Container from './container';
 import { useRouter } from 'next/navigation';
@@ -23,13 +24,13 @@ const items: MenuProps['items'] = [
     },
     {
         key: '3',
-        label: <a href="/api/auth/logout">Log out</a>,
+        label: <button onClick={() => signOut()}>Log out</button>,
     },
 ];
 
 const Navbar = () => {
     const router = useRouter();
-    const { isLoading, user } = useUser();
+    const { data: session, status } = useSession();
 
     const isDownMd = useMediaQuery('(max-width: 768px)');
 
@@ -54,37 +55,35 @@ const Navbar = () => {
                     >
                         {isDownMd ? '' : 'Reports'}
                     </Button>
-                    {isLoading ? (
+                    {status === 'loading' ? (
                         <>
                             <div className="animate-pulse bg-gray-300 h-10 w-20 rounded-lg" />
                         </>
-                    ) : user ? (
+                    ) : session && session.user ? (
                         <div className="w-8 h-8 rounded-full overflow-hidden relative cursor-pointer border">
                             <Dropdown menu={{ items }}>
-                                {user.picture ? (
+                                {session.user.image ? (
                                     <Image
-                                        src={user.picture}
+                                        src={session.user.image}
                                         fill
                                         alt="profile-picture"
                                     />
                                 ) : (
-                                    <div className="w-full h-full bg-gray-300">
-                                        {user.email && user.email[0]}
+                                    <div className="w-full h-full bg-gray-300 flex justify-center items-center">
+                                        {session.user.email &&
+                                            session.user.email[0]}
                                     </div>
                                 )}
                             </Dropdown>
                         </div>
                     ) : (
-                        <Link href="/api/auth/login">
-                            <Button
-                                size="large"
-                                icon={
-                                    <LogIn className="w-4 h-4 text-[#00aeab]" />
-                                }
-                            >
-                                {isDownMd ? '' : 'Log in'}
-                            </Button>
-                        </Link>
+                        <Button
+                            size="large"
+                            icon={<LogIn className="w-4 h-4 text-[#00aeab]" />}
+                            onClick={() => signIn()}
+                        >
+                            {isDownMd ? '' : 'Log in'}
+                        </Button>
                     )}
                 </div>
             </Container>

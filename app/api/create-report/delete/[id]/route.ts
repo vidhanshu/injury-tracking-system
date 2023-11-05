@@ -15,7 +15,7 @@ export const DELETE = async (
             });
         }
 
-        console.log("[YES WE ARE HERE IN DELETE]")
+        console.log('[YES WE ARE HERE IN DELETE]');
 
         const user = await prisma.user.findUnique({
             where: {
@@ -28,7 +28,6 @@ export const DELETE = async (
         const report = await prisma.report.delete({
             where: {
                 id: Number(id),
-                reporterId: user.id,
             },
         });
 

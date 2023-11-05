@@ -26,7 +26,6 @@ export const PATCH = async (
         const report = await prisma.report.update({
             where: {
                 id: Number(id),
-                reporterId: user?.id,
             },
             data: {
                 reporterName,

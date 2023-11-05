@@ -6,7 +6,7 @@ import { Tooltip } from 'antd';
 import { TBodyMap, TBodyMapValue } from '../types';
 
 type TBackBodyProps = {
-    bodyMap: TBodyMap;
+    bodyMap: any;
     addPart?: (data: { key: string; value: TBodyMapValue }) => void;
 };
 

@@ -69,7 +69,6 @@ const handler = NextAuth({
                     await prisma.user.create({
                         data: {
                             email: profile!.email,
-                            username: profile!.name,
                             image: profile!.image,
                         },
                     });

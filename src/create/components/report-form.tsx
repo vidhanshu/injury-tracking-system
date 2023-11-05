@@ -1,31 +1,38 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
+import dayjs from 'dayjs';
 import React, { ChangeEvent, useState } from 'react';
 import { User, X, Clipboard } from 'lucide-react';
-import {
-    Button,
-    Card,
-    DatePicker,
-    Flex,
-    Form,
-    Input,
-    TimePicker,
-    message,
-} from 'antd';
+import { Button, Card, DatePicker, Flex, Form, Input, TimePicker } from 'antd';
 
 import FrontBody from './front-body';
 import BackBody from './back-body';
 import Container from '@/src/common/components/container';
 import { TBodyMap, TBodyMapValue } from '../types';
-// import { useSession } from 'next-auth/react';
 
-const CreateReportForm = () => {
-    const router = useRouter();
-    // const { data: session } = useSession();
-    const [messageApi, contextHolder] = message.useMessage();
-    const [bodyMapData, setBodyMapData] = useState<TBodyMap>({});
-
+type TCreateReportFormProps = {
+    formTitle?: string;
+    submitButtonTitle?: string;
+    bodyMapData: TBodyMap;
+    setBodyMapData: React.Dispatch<React.SetStateAction<TBodyMap>>;
+    onSubmit: (values: any) => void;
+    loading: boolean;
+    defaultValues?: {
+        name: string;
+        reporterName: string;
+        date: Date;
+        time: Date;
+    };
+};
+const CreateReportForm = ({
+    bodyMapData,
+    setBodyMapData,
+    onSubmit,
+    loading,
+    defaultValues,
+    formTitle = 'Create an Injury Report',
+    submitButtonTitle = 'Create',
+}: TCreateReportFormProps) => {
     const addPart = (data: { key: string; value: TBodyMapValue }) => {
         if (data.key in bodyMapData) {
             return;
@@ -34,8 +41,6 @@ const CreateReportForm = () => {
             ...prev,
             [data.key]: data.value,
         }));
-
-        router.push('/create-report/#body-map-details');
     };
 
     const removePart = (key: string) => {
@@ -59,14 +64,25 @@ const CreateReportForm = () => {
 
     return (
         <>
-            {contextHolder}
             <Container className="py-6">
                 <h1 className="text-2xl md:text-3xl lg:text-4xl font-semibold text-[#345f54] mb-6">
-                    Create an Injury Report
+                    {formTitle}
                 </h1>
 
                 <div className="space-y-6">
-                    <Form onFinish={(values) => console.log(values)}>
+                    <Form
+                        initialValues={{
+                            ['report_name']: defaultValues?.name,
+                            ['reporter_name']: defaultValues?.reporterName,
+                            ['date']: defaultValues?.date
+                                ? dayjs(defaultValues?.date)
+                                : undefined,
+                            ['time']: defaultValues?.time
+                                ? dayjs(defaultValues?.time)
+                                : undefined,
+                        }}
+                        onFinish={onSubmit}
+                    >
                         <div className="grid  md:grid-cols-2 lg:grid-cols-4 gap-1 md:gap-4">
                             <Form.Item
                                 name="report_name"
@@ -113,9 +129,10 @@ const CreateReportForm = () => {
                             >
                                 <DatePicker
                                     size="large"
+                                    placeholder="Enter date of Injury"
                                     format="YYYY-MM-DD"
                                     style={{ display: 'block' }}
-                                />
+                                    />
                             </Form.Item>
                             <Form.Item
                                 name="time"
@@ -125,10 +142,11 @@ const CreateReportForm = () => {
                                         message: 'Please enter Time of injury',
                                     },
                                 ]}
-                            >
+                                >
                                 <TimePicker
                                     size="large"
                                     format="hh:mm"
+                                    placeholder="Enter time of Injury"
                                     style={{ display: 'block' }}
                                 />
                             </Form.Item>
@@ -213,11 +231,12 @@ const CreateReportForm = () => {
                         <Form.Item>
                             <Flex justify="end">
                                 <Button
+                                    loading={loading}
                                     size="large"
                                     type="primary"
                                     htmlType="submit"
                                 >
-                                    Create
+                                    {submitButtonTitle}
                                 </Button>
                             </Flex>
                         </Form.Item>

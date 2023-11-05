@@ -5,7 +5,7 @@ import { NextRequest, NextResponse } from 'next/server';
 export const POST = async (req: NextRequest) => {
     try {
         const body = await req.json();
-        const { email, password, username } = body;
+        const { email, password } = body;
         if (!email || !password) {
             return new NextResponse('email and password are required', {
                 status: 400,
@@ -18,7 +18,6 @@ export const POST = async (req: NextRequest) => {
             data: {
                 email,
                 password: hashedPassword,
-                username,
             },
         });
 
@@ -26,7 +25,6 @@ export const POST = async (req: NextRequest) => {
             JSON.stringify({
                 id: user.id,
                 email: user.email,
-                username: user.username,
                 image: user.image,
                 createdAt: user.createdAt,
                 updatedAt: user.updatedAt,

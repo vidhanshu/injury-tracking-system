@@ -7,6 +7,7 @@ import theme from '@/lib/themeConfig';
 
 import './globals.css';
 import AuthSessionProvider from '@/src/auth/components/auth-session-provider';
+import AuthProvider from '@/src/auth/context/auth-provider';
 
 const ibmPlexSans = IBM_Plex_Sans({
     subsets: ['latin'],
@@ -25,7 +26,7 @@ const RootLayout = ({ children }: React.PropsWithChildren) => (
             <ConfigProvider theme={theme}>
                 <body className={ibmPlexSans.className}>
                     <StyledComponentsRegistry>
-                        {children}
+                        <AuthProvider>{children}</AuthProvider>
                     </StyledComponentsRegistry>
                 </body>
             </ConfigProvider>

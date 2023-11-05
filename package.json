@@ -15,8 +15,6 @@
         "antd": "^5.10.3",
         "axios": "^1.6.0",
         "bcryptjs": "^2.4.3",
-        "graphql": "^16.8.1",
-        "graphql-request": "^6.1.0",
         "lucide-react": "^0.291.0",
         "next": "13.5.6",
         "next-auth": "^4.24.4",
@@ -26,9 +24,6 @@
         "usehooks-ts": "^2.9.1"
     },
     "devDependencies": {
-        "@grafbase/sdk": "^0.7.2",
-        "@graphql-codegen/cli": "^5.0.0",
-        "@graphql-codegen/client-preset": "^4.1.0",
         "@types/bcryptjs": "^2.4.5",
         "@types/node": "^20",
         "@types/react": "^18",

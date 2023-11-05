@@ -5,7 +5,7 @@ import { TBodyMap, TBodyMapValue } from '../types';
 import { Tooltip } from 'antd';
 
 type TFrontBodyProps = {
-    bodyMap: TBodyMap;
+    bodyMap: any;
     addPart?: (data: { key: string; value: TBodyMapValue }) => void;
 };
 

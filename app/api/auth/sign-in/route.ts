@@ -40,7 +40,6 @@ export const POST = async (req: NextRequest) => {
             JSON.stringify({
                 id: user.id,
                 email: user.email,
-                username: user.username,
                 image: user.image,
                 createdAt: user.createdAt,
                 updatedAt: user.updatedAt,

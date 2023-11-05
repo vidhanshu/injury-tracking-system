@@ -16,14 +16,10 @@ import { useRouter } from 'next/navigation';
 const items: MenuProps['items'] = [
     {
         key: '1',
-        label: <Link href="/">Profile</Link>,
-    },
-    {
-        key: '2',
         label: <Link href="/create-report">Create</Link>,
     },
     {
-        key: '3',
+        key: '2',
         label: <button onClick={() => signOut()}>Log out</button>,
     },
 ];

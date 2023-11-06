@@ -4,11 +4,13 @@ import React from 'react';
 import Image from 'next/image';
 import { Button } from 'antd';
 import { useRouter } from 'next/navigation';
+import { useSession, signIn } from 'next-auth/react';
 
 import Container from '@/src/common/components/container';
 
 const HeroSection = () => {
     const router = useRouter();
+    const { data: session, status } = useSession();
 
     return (
         <>
@@ -29,9 +31,15 @@ const HeroSection = () => {
                             and track the injuries reported by a person
                         </p>
                         <Button
-                            onClick={() => router.push('/create-report')}
                             type="primary"
                             size="large"
+                            onClick={() => {
+                                if (session?.user) {
+                                    router.push('/create-report');
+                                } else {
+                                    signIn();
+                                }
+                            }}
                         >
                             Get started
                         </Button>

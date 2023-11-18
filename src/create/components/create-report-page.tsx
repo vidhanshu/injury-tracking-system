@@ -44,6 +44,7 @@ const CreateReportPage = () => {
             messageApi.success('Report created successfully');
             setBodyMapData({});
             router.refresh();
+            router.push('/view-reports');
         } catch (error: any) {
             messageApi.error(error.message);
         } finally {

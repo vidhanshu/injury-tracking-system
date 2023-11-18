@@ -3,16 +3,10 @@
 import axios from 'axios';
 import dayjs from 'dayjs';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { useRef, useState } from 'react';
 import { SearchOutlined } from '@ant-design/icons';
-import {
-    Button,
-    Input,
-    InputRef,
-    Space,
-    DatePicker,
-    Modal,
-} from 'antd';
+import { Button, Input, InputRef, Space, DatePicker, Modal } from 'antd';
 import Highlighter from 'react-highlight-words';
 import { ColumnType, ColumnsType } from 'antd/es/table';
 import { FilterConfirmProps } from 'antd/es/table/interface';
@@ -28,9 +22,12 @@ type DataIndex = keyof DataType;
 
 export default function useTable({
     messageApi,
+    setData,
 }: {
     messageApi: MessageInstance;
+    setData: React.Dispatch<React.SetStateAction<DataType[]>>;
 }) {
+    const router = useRouter();
     const { user } = useAuth();
     const [searchedColumn, setSearchedColumn] = useState('');
     const [searchText, setSearchText] = useState('');
@@ -218,10 +215,10 @@ export default function useTable({
         try {
             await axios.delete(`/api/create-report/delete/${id}`);
             messageApi.success('Report deleted successfully');
-            window.location.reload();
+            setData((prev) => prev.filter((data) => data.id !== id));
         } catch (error: any) {
             messageApi.error(error.message);
-        } 
+        }
     };
 
     const columns: ColumnsType<DataType> = [
@@ -292,11 +289,12 @@ export default function useTable({
                                                     <Button
                                                         danger
                                                         type="primary"
-                                                        onClick={() =>
+                                                        onClick={() => {
                                                             deleteReport(
                                                                 record.id
-                                                            )
-                                                        }
+                                                            );
+                                                            Modal.destroyAll();
+                                                        }}
                                                     >
                                                         Ok
                                                     </Button>

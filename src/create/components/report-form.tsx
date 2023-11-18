@@ -4,6 +4,7 @@ import dayjs from 'dayjs';
 import React, { ChangeEvent, useState } from 'react';
 import { User, X, Clipboard } from 'lucide-react';
 import { Button, Card, DatePicker, Flex, Form, Input, TimePicker } from 'antd';
+import { useSession } from 'next-auth/react';
 
 import FrontBody from './front-body';
 import BackBody from './back-body';
@@ -33,6 +34,8 @@ const CreateReportForm = ({
     formTitle = 'Create an Injury Report',
     submitButtonTitle = 'Create',
 }: TCreateReportFormProps) => {
+    const { data: session } = useSession();
+
     const addPart = (data: { key: string; value: TBodyMapValue }) => {
         if (data.key in bodyMapData) {
             return;
@@ -73,13 +76,15 @@ const CreateReportForm = ({
                     <Form
                         initialValues={{
                             ['report_name']: defaultValues?.name,
-                            ['reporter_name']: defaultValues?.reporterName,
+                            ['reporter_name']:
+                                defaultValues?.reporterName ||
+                                session?.user?.name,
                             ['date']: defaultValues?.date
                                 ? dayjs(defaultValues?.date)
-                                : undefined,
+                                : dayjs(new Date()),
                             ['time']: defaultValues?.time
                                 ? dayjs(defaultValues?.time)
-                                : undefined,
+                                : dayjs(new Date().getTime()),
                         }}
                         onFinish={onSubmit}
                     >
@@ -132,7 +137,7 @@ const CreateReportForm = ({
                                     placeholder="Enter date of Injury"
                                     format="YYYY-MM-DD"
                                     style={{ display: 'block' }}
-                                    />
+                                />
                             </Form.Item>
                             <Form.Item
                                 name="time"
@@ -142,7 +147,7 @@ const CreateReportForm = ({
                                         message: 'Please enter Time of injury',
                                     },
                                 ]}
-                                >
+                            >
                                 <TimePicker
                                     size="large"
                                     format="hh:mm"
